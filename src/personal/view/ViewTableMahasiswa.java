@@ -14,7 +14,6 @@ public class ViewTableMahasiswa extends javax.swing.JFrame {
 
     private final DefaultTableModel model;
     private MahasiswaRepository mahasiswaRepository;
-    ;
     Mahasiswa mahasiswa;
 
     public ViewTableMahasiswa() {
@@ -35,8 +34,11 @@ public class ViewTableMahasiswa extends javax.swing.JFrame {
 
         List<Mahasiswa> mahasiswas;
         try {
+            
+            /**
+             * Fungsi dataMahasiswa ialah untuk mengambil seluruh data yang ada pada database
+             */
             mahasiswas = mahasiswaRepository.dataMahasiswa();
-            System.out.println(mahasiswas.size());
 
             String[] data = new String[3];
             for (Mahasiswa p : mahasiswas) {
@@ -146,17 +148,30 @@ public class ViewTableMahasiswa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        
+        /**
+         * Fungsi Insert bertujuan untuk menambahkan data baru kedalam model
+         * @param Mahasiswa Merupakan data baru yang hendak dimasukan
+         */
         mahasiswaRepository.insert(new Mahasiswa("162020040", "Lorem Ipsum Dolor"));
         getData();
 
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        /**
+         * Fungsi delete akan menghapus data berdasarkan ID model
+         * @param int merupakan id yang hendak di hapus.
+         */
         mahasiswaRepository.delete(34);
         getData();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        /**
+         * Fungsi update dapat merubah data yang telah ada
+         * @param Mahasiswa Merupakan data mahasiswa baru disertai dengan ID-nya
+         */
         mahasiswaRepository.update(new Mahasiswa(12, "162020016", "Lorem Ipsum Dolor"));
         getData();
     }//GEN-LAST:event_btnUpdateActionPerformed
