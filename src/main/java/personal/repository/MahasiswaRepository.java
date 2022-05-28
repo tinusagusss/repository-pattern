@@ -10,6 +10,8 @@ import personal.entity.Mahasiswa;
 public interface MahasiswaRepository {
 
     void insert(Mahasiswa mahasiswa);
+    
+    void update(Mahasiswa mahasiswa);
 
     void delete(int id);
 

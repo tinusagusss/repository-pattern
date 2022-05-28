@@ -11,9 +11,9 @@ import java.sql.SQLException;
 public class ConnectionManager {
 
     private Connection connection;
-    private final String jdbcUrl = "jdbc:mysql://localhost:3306/tablelatihan";
+    private final String jdbcUrl = "jdbc:mysql://localhost:3306/akademik";
     private final String user = "root";
-    private final String password = "P@ssw0rd.01";
+    private final String password = "basdat2020";
 
     public Connection getConnection() {
         try {

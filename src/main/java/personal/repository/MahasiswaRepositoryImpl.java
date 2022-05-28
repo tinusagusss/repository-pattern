@@ -40,6 +40,23 @@ public class MahasiswaRepositoryImpl implements MahasiswaRepository {
     }
 
     @Override
+    public void update(Mahasiswa mahasiswa) {
+        try ( Connection connection = connectionManager.getConnection();) {
+
+            String query = "UPDATE Mahasiswa SET nrp = ?, nama = ? WHERE ID = ?";
+            try ( PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setString(1, mahasiswa.getNrp());
+                statement.setString(2, mahasiswa.getNama());
+                statement.setInt(3, mahasiswa.getId());
+                statement.executeUpdate();
+
+            }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+    }
+
+    @Override
     public List<Mahasiswa> dataMahasiswa() {
         try ( Connection connection = connectionManager.getConnection()) {
 
